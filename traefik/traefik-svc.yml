@@ -1,0 +1,23 @@
+# this is required to actually expose to the outside world.
+# NodePort becomes 
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service
+  namespace: default
+spec:
+  # NodePort is intended for internal traffic
+  #type: NodePort
+  # ClusterIP exposes pods to internal traffic - but doesn't expect port numbers of pods to change..
+  type: ClusterIP
+  selector:
+    k8s-app: traefik-ingress-lb
+  ports:
+    - protocol: TCP
+      port: 80
+      name: app-services
+    - protocol: TCP
+      port: 8080
+      name: dashboard
+
+  

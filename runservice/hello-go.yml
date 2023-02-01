@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hello-go
+  labels:
+    app: hello-go
+
+spec:
+  replicas: 1
+  # spec.selector defines how the created ReplicaSet finds pods to manage. 
+  # In this case it must matchLabels defined in the pod template app:hello_go
+  selector:
+    matchLabels:
+      app: hello-go
+  template:
+    metadata:
+      # the label for the pod
+      labels:
+        app: hello-go
+    # the spec for the template    
+    spec:
+      serviceAccountName: hello-go
+      containers:
+        - name: hello-go
+          image: smartmarketingreports/sandpit:km_k8shello_v1          
+          ports:
+            - name: web
+              # the port to expose from the container - for information only
+              containerPort: 8100

@@ -1,0 +1,8 @@
+# used in video
+# namespace kube-system puts things in kubernetes namespace rather than a general namespace - but poor practice
+# so I've walked away from this one..
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: traefik-ingress
+  namespace: default

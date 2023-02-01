@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-web-ui
+  namespace: default
+spec:
+  rules:
+  # use the following host for the dashboard and traefik routes..
+  - host: traefik-ui.minikube
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: traefik-web-ui
+            port: 
+              number: 80

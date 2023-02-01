@@ -1,0 +1,8 @@
+#kubectl apply -f hello-go.yml \
+#              -f hello-go-service.yml \
+#              -f hello-go-ingress.yml
+kubectl create -f hello-go.yml
+kubectl create -f hello-go-ingress.yml
+kubectl create -f hello-go-service.yml
+
+# kubectl get pods --show-labels
