@@ -1,0 +1,3 @@
+kubectl delete -f hello.yml
+kubectl delete -f hello-service.yml
+kubectl delete -f hello-ingress.yml

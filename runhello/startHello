@@ -1,0 +1,3 @@
+kubectl create -f hello.yml
+kubectl create -f hello-service.yml
+kubectl create -f hello-ingress.yml

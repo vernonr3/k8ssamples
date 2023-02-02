@@ -11,17 +11,18 @@ spec:
   # In this case it must matchLabels defined in the pod template app:hello_go
   selector:
     matchLabels:
-      app: hello-go
+      podname: hello-go
+  # the template for each pod
   template:
     metadata:
       # the label for the pod
       labels:
-        app: hello-go
+        podname: hello-go
     # the spec for the template    
     spec:
-      serviceAccountName: hello-go
+      #serviceAccountName: hello-go
       containers:
-        - name: hello-go
+        - name: hello-go-container
           image: smartmarketingreports/sandpit:km_k8shello_v1          
           ports:
             - name: web
