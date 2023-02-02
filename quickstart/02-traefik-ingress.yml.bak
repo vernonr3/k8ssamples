@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-internal
+  #annotations:
+  #  kubernetes.io/ingress.class: traefik-external  
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: traefik-ui.minikube
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: api@internal
+            port: 
+              number: 8080             
+      - path: /debug
+        pathType: Prefix
+        backend:
+          service:
+            name: debug@internal
+            port: 
+              number: 8080             
+
+     - path: /dashboard
+        pathType: Prefix
+        backend:
+          service:
+            name: dashboard@internal
+            port: 
+              number: 8080 
+
+
